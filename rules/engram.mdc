@@ -1,0 +1,53 @@
+---
+description: Use Engram to persist memory across sessions — search for context at session start, store decisions and work during the session
+globs:
+alwaysApply: true
+---
+
+# Engram — Persistent Memory for AI Agents
+
+You have access to Engram, a memory service that stores complete conversation transcripts and makes them searchable via semantic search.
+
+## On session start
+
+Search Engram for context relevant to the current task:
+
+```
+search
+  query: "<summary of what the user is asking about>"
+  limit: 5
+```
+
+Include any relevant results in your working context.
+
+## During the session
+
+When significant work is done or important context is established, store it:
+
+```
+create_conversation
+  title: "<concise description>"
+  agent_id: "cursor"
+  tags: [<relevant tags>]
+
+append_messages
+  conversation_id: "<id>"
+  messages:
+    - role: "user"
+      content: "<what the user asked>"
+    - role: "assistant"
+      content: "<what you did and why>"
+```
+
+## What to store
+
+- Decisions and their reasoning
+- Bug investigations and resolutions
+- User preferences and workflow patterns
+- Architecture discussions
+
+## What NOT to store
+
+- Routine file reads or searches
+- Trivial exchanges
+- Information already in the codebase

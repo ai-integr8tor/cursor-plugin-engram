@@ -1,0 +1,17 @@
+{
+  "name": "engram",
+  "version": "1.0.0",
+  "description": "Persistent memory for AI agents — store and search full conversation transcripts with semantic search",
+  "author": {
+    "name": "Get Engram LLC",
+    "email": "hello@getengram.app"
+  },
+  "homepage": "https://getengram.app",
+  "repository": "https://github.com/get-engram/cursor-plugin-engram",
+  "license": "MIT",
+  "keywords": ["memory", "agents", "mcp", "context", "conversations", "semantic-search", "transcripts"],
+  "logo": "assets/logo.svg",
+  "rules": "rules/",
+  "skills": "skills/",
+  "mcpServers": "mcp.json"
+}
