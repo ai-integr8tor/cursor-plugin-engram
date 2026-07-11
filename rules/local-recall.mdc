@@ -1,0 +1,42 @@
+---
+description: Use Local Recall to search prior context and store durable decisions through the local MCP server
+globs:
+alwaysApply: true
+---
+
+# Local Recall
+
+Local Recall stores complete conversation messages on operator-controlled infrastructure.
+
+## At session start
+
+Search for context relevant to the current task:
+
+```text
+search
+  query: "<summary of the task>"
+  limit: 5
+```
+
+Use relevant results as context. Do not assume every result is current or authoritative.
+
+## During the session
+
+Store durable decisions, bug resolutions, architecture choices, and explicit user preferences:
+
+```text
+create_conversation
+  title: "<concise description>"
+  agent_id: "cursor"
+  tags: ["<relevant tag>"]
+
+append_messages
+  conversation_id: "<returned id>"
+  messages:
+    - role: "user"
+      content: "<request or decision context>"
+    - role: "assistant"
+      content: "<outcome and reasoning>"
+```
+
+Do not store credentials, secrets, routine file reads, or content the user asked to delete. Use `delete_conversation` for permanent removal.
