@@ -1,0 +1,19 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON manifests
+        run: jq empty mcp.json .cursor-plugin/plugin.json
+      - name: Reject hosted Engram endpoints
+        run: |
+          ! grep -R -E 'getengram\.app|mcp\.getengram|@getengram' +            --exclude-dir=.git .

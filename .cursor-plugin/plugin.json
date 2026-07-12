@@ -1,16 +1,14 @@
 {
-  "name": "engram",
-  "version": "1.0.0",
-  "description": "Persistent memory for AI agents — store and search full conversation transcripts with semantic search",
+  "name": "local-recall",
+  "version": "0.1.0",
+  "description": "Self-hosted persistent memory for AI agents through standard MCP",
   "author": {
-    "name": "Get Engram LLC",
-    "email": "hello@getengram.app"
+    "name": "ai-integr8tor"
   },
-  "homepage": "https://getengram.app",
-  "repository": "https://github.com/get-engram/cursor-plugin-engram",
+  "homepage": "https://github.com/ai-integr8tor/engram",
+  "repository": "https://github.com/ai-integr8tor/cursor-plugin-engram",
   "license": "MIT",
-  "keywords": ["memory", "agents", "mcp", "context", "conversations", "semantic-search", "transcripts"],
-  "logo": "assets/logo.svg",
+  "keywords": ["memory", "agents", "mcp", "self-hosted", "local-first", "conversations"],
   "rules": "rules/",
   "skills": "skills/",
   "mcpServers": "mcp.json"
